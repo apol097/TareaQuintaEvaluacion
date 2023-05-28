@@ -1,3 +1,5 @@
+
+
 public class RegistroDocentes {
     Colors console = new Colors();
     private String[][] docentes;
@@ -9,13 +11,11 @@ public class RegistroDocentes {
     public void agregarDocente(String codigo, String nombre, String apellido, String correo) {
         String[] nuevoDocente = {codigo, nombre, apellido, correo};
         String[][] nuevaMatriz = new String[docentes.length + 1][docentes[0].length];
-
         for (int i = 0; i < docentes.length; i++) {
             nuevaMatriz[i] = docentes[i];
         }
-
         nuevaMatriz[docentes.length] = nuevoDocente;
-        docentes = nuevaMatriz;
+        this.docentes = nuevaMatriz;
     }
 
     public void imprimirDocentes() {
@@ -29,6 +29,13 @@ public class RegistroDocentes {
         }
     }
 
+    public void ordenarDocentes(int columna){
+            Sort.shell(docentes, columna);
+    }
+    //sobrecarga del metodo ordenar Docentes
+    public void ordenarDocentes(){
+        ordenarDocentes(0);
+    }
     public static void main(String[] args) {
         Colors console = new Colors();
         String[][] docente = {
@@ -42,6 +49,7 @@ public class RegistroDocentes {
 
         docentes.agregarDocente("D2", "Luis", "García", "lgarcia@mail.utec.edu.sv");
         console.printRed("\nDocentes con el nuevo docente agregado:\n");
+        docentes.ordenarDocentes();
         docentes.imprimirDocentes();
     }
 }

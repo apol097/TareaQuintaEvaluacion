@@ -31,6 +31,14 @@ public class RegistroMaterias {
         }
     }
 
+    public void ordenarMaterias(int columna){
+        Sort.shell(materias, columna);
+    }
+
+    public void ordenarMaterias(){
+        ordenarMaterias(0);
+    }
+
     public static void main(String[] args) {
         String[][] materia = {
             {"M1", "Métodos I"},
@@ -44,6 +52,7 @@ public class RegistroMaterias {
 
         materias.agregarMateria("M2", "Métodos II");
         System.out.println("\nMaterias con la nueva materia agregada:");
+        materias.ordenarMaterias();
         materias.imprimirMaterias();
     }
 }

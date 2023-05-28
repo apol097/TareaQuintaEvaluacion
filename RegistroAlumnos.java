@@ -18,32 +18,6 @@ public class RegistroAlumnos{
         this.alumnos = nuevaMatriz;
     }
 
-    public void ordenarPorMatricula() {
-        int n = alumnos.length;
-        int intervalo = 1;
-
-        while (intervalo < n / 3) {
-            intervalo = intervalo * 3 + 1;
-        }
-
-        while (intervalo > 0) {
-            for (int i = intervalo; i < n; i++) {
-                String[] alumnoActual = alumnos[i];
-                String matricula = alumnoActual[0];
-                int j = i;
-
-                while (j >= intervalo && alumnos[j - intervalo][0].compareTo(matricula) > 0) {
-                    alumnos[j] = alumnos[j - intervalo];
-                    j -= intervalo;
-                }
-
-                alumnos[j] = alumnoActual;
-            }
-
-            intervalo = (intervalo - 1) / 3;
-        }
-    }
-
     public void imprimirAlumnos() {
         console.printGreen("\nNo. Carnet\tNombre\tApellido\tDireccion\tTelefono\tSexo\t\tCorreo");
         console.printWhite("\n--------------------------------------------------------------------------------------------------------------------------\n");
@@ -55,6 +29,12 @@ public class RegistroAlumnos{
         }
     }
 
+    public void ordenarAlumnos(int columna){
+        Sort.shell(alumnos, columna);
+    }
+    public void ordenarAlumnos(){
+        ordenarAlumnos(0);
+    }
     public static void main(String[] args) {
         Colors console = new Colors();
         String[][] alumno = {
@@ -65,12 +45,11 @@ public class RegistroAlumnos{
         RegistroAlumnos alumnos = new RegistroAlumnos(alumno);
         console.printRed("Alumnos sin ordenar:\n");
         alumnos.agregarAlumno("17-1750-2023", "Maria", "Delgado", "Calle Rosas n 456", "2333-9999", "Femenino", "maria.lopez@mail.utec.edu.sv");
-        // se ordena por el numero de matricula
-        alumnos.ordenarPorMatricula();
+       
         //se manda a imprimir los alumnos
         
         alumnos.imprimirAlumnos();
-        alumnos.ordenarPorMatricula();
+        alumnos.ordenarAlumnos();
         console.printRed("\nAlumnos ordenados por matrícula:\n");
         alumnos.imprimirAlumnos();
     }
