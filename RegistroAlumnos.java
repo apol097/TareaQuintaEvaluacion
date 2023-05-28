@@ -30,7 +30,7 @@ public class RegistroAlumnos{
     }
 
     public void ordenarAlumnos(int columna){
-        Sort.shell(alumnos, columna);
+        Shell.sort(alumnos, columna);
     }
     public void ordenarAlumnos(){
         ordenarAlumnos(0);

@@ -30,7 +30,7 @@ public class RegistroDocentes {
     }
 
     public void ordenarDocentes(int columna){
-            Sort.shell(docentes, columna);
+            Shell.sort(docentes, columna);
     }
     //sobrecarga del metodo ordenar Docentes
     public void ordenarDocentes(){

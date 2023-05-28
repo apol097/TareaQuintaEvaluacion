@@ -32,7 +32,7 @@ public class RegistroMaterias {
     }
 
     public void ordenarMaterias(int columna){
-        Sort.shell(materias, columna);
+        Shell.sort(materias, columna);
     }
 
     public void ordenarMaterias(){
