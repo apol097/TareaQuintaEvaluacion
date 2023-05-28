@@ -1,4 +1,5 @@
 public class RegistroMaterias {
+    Colors console = new Colors();
     private String[][] materias;
 
     public RegistroMaterias(String[][] materias) {
@@ -18,26 +19,31 @@ public class RegistroMaterias {
     }
 
     public void imprimirMaterias() {
+        
+        console.printGreen("\nCodigo\tNombre");
+        console.printWhite("\n--------------------------------------\n");
         for (String[] materia : materias) {
             for (String atributo : materia) {
-                System.out.print(atributo + " ");
+                console.printBlue(  atributo + "\t"  );
+
             }
             System.out.println();
         }
     }
 
     public static void main(String[] args) {
-        String[][] materias = {
+        String[][] materia = {
             {"M1", "Métodos I"},
+            {"P1", "Programacion I"},
             // Otras materias...
         };
 
-        RegistroMaterias registroMaterias = new RegistroMaterias(materias);
+        RegistroMaterias materias = new RegistroMaterias(materia);
         System.out.println("Materias sin agregar:");
-        registroMaterias.imprimirMaterias();
+        materias.imprimirMaterias();
 
-        registroMaterias.agregarMateria("M2", "Métodos II");
+        materias.agregarMateria("M2", "Métodos II");
         System.out.println("\nMaterias con la nueva materia agregada:");
-        registroMaterias.imprimirMaterias();
+        materias.imprimirMaterias();
     }
 }
