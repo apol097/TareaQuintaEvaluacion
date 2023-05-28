@@ -15,7 +15,7 @@ public class RegistroAlumnos{
         }
 
         nuevaMatriz[alumnos.length] = nuevoAlumno;
-        alumnos = nuevaMatriz;
+        this.alumnos = nuevaMatriz;
     }
 
     public void ordenarPorMatricula() {
